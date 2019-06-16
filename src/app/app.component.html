@@ -48,6 +48,42 @@
 <hr>
 <h1>data binding</h1>
 
+====={{maTaille}}
+<div>
+  <input type="text" [(ngModel)]="person.nom"  />
+</div>
+  <hr>
+  <ma-taille resizeElement [taille]="maTaille"></ma-taille>
+  <ma-taille [(taille)]="maTaille"></ma-taille>
+
+  ii<button  (click)="child()" >child</button>iii
+  <hr>
+<hr>
+========================== person 1=============================
+<hr>
+
+  <person></person>
+
+<hr>
+========================== person 2=============================
+<table *ngFor="let character of characters; let c =count ">
+    {{c}}
+</table>
+================================================= personnage preferee=======================
+<h1 *ngIf="disable">
+  votre personnage prefere est :  {{theBest.nom}} +' ' + {{theBest.prenom}}
+</h1>
+<div>
+  <person [myperson]="character" [disable]="disable"
+          *ngFor="let character of characters; let c =count "(onChoose)="isSelected($event)"> {{c}}</person>
+</div>
+
+<hr>
+======================template de reference
+<div>
+  <person [myperson]="character" [disable]="disable"
+          *ngFor="let character of characters; let c =count "(onChoose)="isSelected($event)" > {{c}}</person>
+</div>
 <hr>=================================les tabs
 <tabs>
   <tab [tabTitle]="'tab 1'"> Tab 1 content</tab>
